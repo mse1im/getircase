@@ -1,0 +1,27 @@
+@import "_variables";
+@import "_mixin";
+
+footer {
+    flex-shrink: 0;
+    background-color: $headerColor;
+    
+    .footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 60px;
+
+        @media screen and (max-width: $screensm) {
+            justify-content: center;
+            flex-direction: column;
+            height: 90px;
+        }
+    }
+
+    .copyright {
+        span {
+            color:$white;
+            font-size: $fonts;
+        }
+    }
+}

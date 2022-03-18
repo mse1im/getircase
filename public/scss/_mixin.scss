@@ -1,0 +1,51 @@
+@mixin overflow {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@mixin hover-out {
+    transition: all .5s ease-in-out;
+}
+
+@mixin hover-linear {
+    transition: all .5s linear;
+}
+
+@mixin animatetop {
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    position: relative;
+    left: 0;
+    top: 0;
+}
+
+@mixin modal-position {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: absolute;
+}
+
+@mixin box {
+    background: #ffffff4d;
+    box-shadow: 0 8px 32px 0 #5d3ebc2e;
+    backdrop-filter: blur( 5.5px );
+    -webkit-backdrop-filter: blur( 5.5px );
+    border-radius: 10px;
+    border: 1px solid $white;
+}
+
+@mixin bar {
+    padding: 20px;
+    background: $headerColor;
+    border-radius: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    border-color: 2px solid $headerColor;
+    margin-top: 3rem;
+}

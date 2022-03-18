@@ -1,0 +1,109 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap");
+@import "_variables";
+@import "_mixin";
+@import "_grid";
+@import "_reset";
+@import "_header";
+@import "_footer";
+
+#getir {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    .loader {
+        height: 100%;
+        width: 100%;
+        @include modal-position;
+    }
+}
+
+main {
+    flex: 1 0 auto;
+
+    .welcome {
+        margin-top: 4rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @media screen and (max-width: $screensm) {
+            flex-direction: column;
+
+            .filter {
+                margin-top: 2rem;
+            }
+        }
+
+        h2 {
+            font-weight: 500;
+        }
+
+        .filter {}
+    }
+
+    .task-bar {
+        .box {
+            @include bar;
+
+            .icon {}
+
+            .score {
+                display: flex;
+                flex-direction: column;
+                text-align: end;
+            }
+
+            &.completed {
+                background: yellow;
+            }
+
+            &.incompleted {
+                background: red;
+            }
+        }
+    }
+
+    .all-task {
+
+        .wrap-task {
+            margin: 4rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            @media screen and (max-width: $screensm) {
+                flex-direction: column;
+                align-items: stretch;
+
+                .add-task {
+                    margin-top: 2rem;
+                }
+            }
+
+            h3 {
+
+            }
+
+            .add-task {
+
+            }
+        }
+
+        .box {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            @include box;
+
+            .info {
+                span {}
+
+                .status {}
+            }
+
+            .edit {}
+        }
+    }
+}

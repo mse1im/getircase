@@ -1,0 +1,148 @@
+@import "_variables";
+@import "_mixin";
+
+header {
+    nav {
+        height: 55px;
+        background-color: $headerColor;
+        display: flex;
+
+        .nav {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+
+            @media screen and (max-width: $screensm) {
+                justify-content: space-between;
+            }
+        }
+
+        h1 {
+            font-size: $fontl;
+            display: none;
+            color:$white;
+            font-weight: 400;
+
+            @media screen and (max-width: $screensm) {
+                display: block;
+            }
+        }
+
+        .profile {
+            display: flex;
+            justify-content: flex-end;
+            position: relative;
+            cursor: pointer;
+
+            figure {
+                height: 40px;
+                width: 40px;
+                img {
+                    border-radius: 50%;
+                    height: 40px;
+                    width: 40px;
+                    border:2px solid $yellow;
+                }
+
+                ul {
+                    display: flex;
+                    position: absolute;
+                    opacity: 0;
+                    flex-direction: column;
+                    top: 55px;
+                    right: 0;
+                    align-items: flex-start;
+                    width: 200px;
+                    padding: 10px;
+                    background: $headerColor;
+                    border-radius: 8px;
+                    z-index: 10;
+                    @include hover-out;
+                    visibility: hidden;
+    
+                    li {
+                        border-radius: 8px;
+                        background: $currentColor;
+                        padding: 10px;
+                        width: 100%;
+
+                        &:not(:last-child) {
+                            margin-bottom: 1rem;
+                        }
+    
+                        a {
+                            font-weight: 400;
+                            color: $white;
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+                            justify-content: start;
+    
+                            svg {
+                                margin-right: 1rem;
+                                color: $borderColor;
+                                width: 24px;
+                            }
+    
+                            span {
+                                font-size: $fontm;
+                            }
+    
+                        }
+    
+                        &:hover {
+                            background: $yellow;
+                            @include hover-linear;
+
+                            a, svg {
+                                color:$currentColor
+                            }
+
+                        }
+                    }
+                }
+    
+                &:hover {
+    
+                    ul {
+                        opacity: 1;
+                        @include hover-out;
+                        visibility: visible;
+                    }
+                }
+            }
+
+        }
+        
+    }
+
+    .navbar {
+        background: $currentColor;
+        
+        .header {
+            display: flex;
+            align-items: center;
+            height: 90px;
+            justify-content: space-between;
+
+            @media screen and (max-width: $screensm) {
+                justify-content: center;
+            }
+        }
+
+        h1 {
+            color:$white;
+            display: block;
+
+            @media screen and (max-width: $screensm) {
+                display: none;
+            }
+        }
+
+        figure {
+            img {
+                height: 35px;
+            }
+        }
+    }
+}
