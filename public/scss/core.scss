@@ -3,8 +3,8 @@
 @import "_mixin";
 @import "_grid";
 @import "_reset";
-@import "_header";
-@import "_footer";
+@import "header";
+@import "footer";
 
 #getir {
     display: flex;
@@ -89,19 +89,19 @@ main {
             }
 
             &.completed {
-                background: #05c46b;
+                background: $green;
 
                 svg {
-                    color:#0d7e3d;
+                    color:$green-100;
                 }
 
             }
 
             &.incompleted {
-                background: #e74c3c;
+                background: $red;
 
                 svg {
-                    color:#95261b;
+                    color:$red-100;
                 }
 
             }
@@ -224,7 +224,7 @@ main {
                 top: -16px;
                 height: 30px;
                 width: 30px;
-                background-color: #e74c3c;
+                background-color: $red;
                 border-radius: 50%;
                 display: flex;
                 justify-content: center;
@@ -343,7 +343,7 @@ main {
                 }
 
                 &.delete {
-                    background: #e74c3c;
+                    background: $red;
 
                     &:hover {
                         background:$borderColor;
