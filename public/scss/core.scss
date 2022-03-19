@@ -14,6 +14,8 @@
     .loader {
         height: 100%;
         width: 100%;
+        color:$currentColor;
+        font-size: $fontxl;
         @include modal-position;
     }
 }
@@ -45,21 +47,87 @@ main {
     .task-bar {
         .box {
             @include bar;
+            @include hover-out;
+            cursor: pointer;
 
-            .icon {}
+            .icon {
+                svg {
+                    width: 45px;
+                    height: 45px;
+                }
+            }
 
             .score {
                 display: flex;
                 flex-direction: column;
                 text-align: end;
+
+                span {
+                    font-weight: 600;
+                    font-size: $fontxl;
+                    color:$white;
+                }
+
+                span.txt {
+                    font-weight: 400;
+                    font-size: $fontl;
+                }
+
+                span.a {
+                    font-size: $fonts;
+                    font-weight: 300;
+                    position: relative;
+                    padding-right: 1.3rem;
+                    margin:.3rem 0;
+                }
+
+                span.arrow {
+                    font-size: unset;
+                    @include arrow;
+                    border-color: $white;
+                }
             }
 
             &.completed {
-                background: yellow;
+                background: #05c46b;
+
+                svg {
+                    color:#0d7e3d;
+                }
+
             }
 
             &.incompleted {
-                background: red;
+                background: #e74c3c;
+
+                svg {
+                    color:#95261b;
+                }
+
+            }
+
+            &:hover {
+                @include hover-out;
+
+                background: $currentColor;
+
+                .icon {
+                    svg {
+                        color:$borderColor;
+                    }
+                }
+
+                .score {
+
+                    span {
+                        color:$yellow;
+                    }
+
+                    span.arrow {
+                        right:74px;
+                        border-color: $yellow;
+                    }
+                }
             }
         }
     }
@@ -81,12 +149,33 @@ main {
                 }
             }
 
-            h3 {
-
-            }
-
             .add-task {
+                background: $currentColor;
+                cursor: pointer;
+                @include hover-out;
+                height: 40px;
+                width: 40px;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
 
+                svg {
+                    color:$yellow;
+                }
+
+                &:hover {
+                    @include hover-out;
+                    background:$headerColor;
+
+                    svg {
+                        animation: move 5s infinite;
+                    }
+                }
+
+                @keyframes move {
+                    50% {transform: rotate(180deg);}
+                }
             }
         }
 
@@ -96,14 +185,226 @@ main {
             align-items: center;
             padding: 20px;
             @include box;
+            position: relative;
 
             .info {
-                span {}
+                display: flex;
+                align-items: center;
 
-                .status {}
+                ul > li {
+                    &:not(:last-child) {
+                        padding-bottom: .5rem;
+                    }
+                }
+
+                .status {
+                    margin-right: 1rem;
+                    @include label;
+                }
             }
 
-            .edit {}
+            .edit {
+                svg {
+                    color:$currentColor;
+                }
+
+                &:hover {
+                    svg {
+                        color:$borderColor;
+                    }
+                }
+            }
+
+            .delete {
+                opacity: 0;
+                visibility: hidden;
+                position: absolute;
+                @include hover-out;
+                right: -11px;
+                top: -16px;
+                height: 30px;
+                width: 30px;
+                background-color: #e74c3c;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+
+                svg {
+                    width: 20px;
+                    height: 20px;
+                    color:$white;
+                }
+            }
+
+            &:hover {
+                .delete {
+                    opacity: 1;
+                    visibility: visible;
+                    @include hover-out;
+                }
+            }
+
+            &.completed {
+                border:1px solid #05c46b61;
+            }
+
+            &.incompleted {
+                border:1px solid #e74c3c61;
+            }
+        }
+    }
+
+    .create-task, .update-task {
+        margin-top: 4rem;
+
+        .return {
+            position: relative;
+            margin:2rem 0;
+
+            span {
+                padding-left:1.5rem;
+            }
+
+            span.arrow {
+                @include arrow;
+                left:0;
+                right:unset;
+                top:6.5px;
+                border-color: $black;
+            }
+
+            &:hover {
+                span.arrow {
+                    left:100px;
+                }
+            }
+        }
+
+        h2 {
+            margin:2rem 0;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            @include box;
+            padding:20px;
+
+            .form-block {
+                display: flex;
+                justify-content: space-between;
+                position: relative;
+
+                @media screen and (max-width: $screensm) {
+                    flex-direction: column;
+                    input {
+                        margin-bottom: 2rem;
+                    }
+                }
+
+                input {
+                    background-color: $white;
+                    height: 50px;
+                    border-radius: 4px;
+                    padding:0 15px;
+                    width: 100%
+                }
+    
+                @include label;
+
+                label {
+                    display: flex;
+                    position: absolute;
+                    right: 15px;
+                    top: 18px;
+                    align-items: center;
+
+                    input {
+                        padding:0;
+                    }
+                }
+            }
+
+            button {
+                background: $currentColor;
+                color:$white;
+                border-radius: 4px;
+                height: 50px;
+                @include hover-out;
+                font-size: $fontm;
+                font-weight: 500;
+
+                &:hover {
+                    @include hover-out;
+                    background:$yellow;
+                    color:$currentColor;
+                }
+
+                &.delete {
+                    background: #e74c3c;
+
+                    &:hover {
+                        background:$borderColor;
+                        color:$currentColor;
+                    }
+                }
+            }
+
+            .new-field {
+                align-items: center;
+                display: flex;
+                justify-content: center;
+                margin:1rem 0;
+                flex-direction: column;
+
+                .update-field {
+                    width: 100%;
+                    margin-top: 1rem;
+                    position: relative;
+
+                    input {
+
+                    }
+
+                    label {
+
+                    }
+                }
+
+                .add-field {
+                    background: $currentColor;
+                    padding:5px;
+                    border-radius: 50%;
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    svg {
+                        color:$yellow;
+                    }
+
+                    &:hover {
+                        @include hover-out;
+                        background:$headerColor;
+    
+                        svg {
+                            animation: move 5s infinite;
+                        }
+                    }
+    
+                    @keyframes move {
+                        50% {transform: rotate(180deg);}
+                    }
+                }
+            }
+
+            span.or {
+                text-align: center;
+                margin:1rem 0;
+            }
         }
     }
 }
