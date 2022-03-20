@@ -21,6 +21,9 @@
 
 main {
     flex: 1 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 
     .welcome {
         margin-top: 4rem;
@@ -199,6 +202,8 @@ main {
                 .status {
                     margin-right: 1rem;
                     @include label;
+                    display: flex;
+                    flex-direction: column;
                 }
             }
 

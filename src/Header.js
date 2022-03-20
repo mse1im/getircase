@@ -79,10 +79,12 @@ export default function Header() {
       </nav>
       <div className="navbar">
         <div className="gr header">
-          <figure>
-            <img src="/img/logo.svg" alt="Getir" />
-            <figcaption>Getir</figcaption>
-          </figure>
+          <a href="/">
+            <figure>
+              <img src="/img/logo.svg" alt="Getir" />
+              <figcaption>Getir</figcaption>
+            </figure>
+          </a>
           <h1>Task Manager</h1>
         </div>
       </div>

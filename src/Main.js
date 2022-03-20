@@ -8,8 +8,7 @@ export default function Main() {
   };
   console.log(data);
   return (
-    <main>
-      <div className="gr">
+    <main className="gr">
         <div className="gr-2 welcome">
           <h2>Hello, Mehmet Selim!</h2>
           <div className="filter">a</div>
@@ -93,6 +92,12 @@ export default function Main() {
           <div className="box incompleted">
             <div className="info">
               <div className="status">
+                <label htmlFor="check">
+                  <input type="checkbox" name="check" id="check" />
+                </label>
+                <label htmlFor="check">
+                  <input type="checkbox" name="check" id="check" />
+                </label>
                 <label htmlFor="check">
                   <input type="checkbox" name="check" id="check" />
                 </label>
@@ -282,7 +287,6 @@ export default function Main() {
             <button className="delete">Delete Task</button>
           </div>
         </div>
-      </div>
     </main>
   );
 }
