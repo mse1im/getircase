@@ -1,3 +1,6 @@
+@import "_variables";
+@import "_mixin";
+
 * {
     margin: 0;
     padding: 0;
@@ -6,6 +9,7 @@
 
 html {
     font-size: $htmlSize;
+    height:100%;
 }
 
 body {
@@ -13,6 +17,7 @@ body {
     font-size: $bodySize;
     font-family: $fontFamily;
     color:$black;
+    height:100%;
 
     ::selection {
         color: $yellow;

@@ -34,7 +34,7 @@ main {
         @media screen and (max-width: $screensm) {
             flex-direction: column;
 
-            .filter {
+            .return-to-list {
                 margin-top: 2rem;
             }
         }
@@ -43,7 +43,9 @@ main {
             font-weight: 500;
         }
 
-        .filter {}
+        .return-to-list {
+            cursor: pointer;
+        }
     }
 
     .task-bar {
@@ -191,23 +193,15 @@ main {
 
             .info {
                 display: flex;
-                align-items: center;
+                flex-direction: column;
 
-                ul > li {
-                    &:not(:last-child) {
-                        padding-bottom: .5rem;
-                    }
-                }
-
-                .status {
-                    margin-right: 1rem;
-                    @include label;
-                    display: flex;
-                    flex-direction: column;
+                span {
+                    display: block;
                 }
             }
 
             .edit {
+                cursor: pointer;
                 svg {
                     color:$currentColor;
                 }
@@ -264,6 +258,7 @@ main {
         margin-top: 4rem;
 
         .return {
+            cursor: pointer;
             position: relative;
             margin:2rem 0;
 
@@ -367,14 +362,6 @@ main {
                     width: 100%;
                     margin-top: 1rem;
                     position: relative;
-
-                    input {
-
-                    }
-
-                    label {
-
-                    }
                 }
 
                 .add-field {
